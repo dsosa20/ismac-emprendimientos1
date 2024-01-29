@@ -16,7 +16,7 @@ public class PrincipalCliente {
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 	
 	ClienteDAO clienteDAO = context.getBean("clienteDAOImpl",ClienteDAO.class);
-	ClienteDAO clienteDAO2 = context.getBean("clienteDAOImpl",ClienteDAO.class);
+	ClienteDAO clienteDAO222 = context.getBean("clienteDAOImpl",ClienteDAO.class);
 	
 	//CRUD
 	
