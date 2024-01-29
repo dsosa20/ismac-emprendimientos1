@@ -17,6 +17,7 @@ public class PrincipalCliente {
 	
 	ClienteDAO clienteDAO = context.getBean("clienteDAOImpl",ClienteDAO.class);
 	ClienteDAO clienteDAO222 = context.getBean("clienteDAOImpl",ClienteDAO.class);
+	ClienteDAO clienteDAO333 = context.getBean("clienteDAOImpl",ClienteDAO.class);
 	
 	//CRUD
 	
