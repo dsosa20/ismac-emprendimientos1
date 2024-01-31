@@ -18,18 +18,17 @@ import org.springframework.stereotype.Component;
 public class Categoria {
 	
 
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idCategoria")
 	private int idCategoria;
-	@Column(name="categoria")
+	@Column(name="Categoria")
 	private String Categoria;
-	@Column(name="descripcion")
+	@Column(name="Descripcion")
 	private String Descripcion;
 	
 	@ManyToOne(cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name="idSeccion")		
+	@JoinColumn(name="fk_idSeccion")		
 	//GENERAMOS Seccion ***********
 //	@Autowired
 	private Seccion seccion;  //Seccion
@@ -40,17 +39,19 @@ public class Categoria {
 	}
 	
 	
-	//Constructor por parametros
+	//Constructor por parametro
+	
+	
 	public Categoria(int idCategoria, String categoria, String descripcion, Seccion seccion) {
-
 		this.idCategoria = idCategoria;
-		Categoria = categoria;
-		Descripcion = descripcion;
+		this.Categoria = categoria;
+		this.Descripcion = descripcion;
 		this.seccion = seccion;
 	}
 
 
 	//METODOS SET Y GET
+	
 	public int getIdCategoria() {
 		return idCategoria;
 	}
@@ -90,18 +91,16 @@ public class Categoria {
 		this.seccion = seccion;
 	}
 
-	
-	//METODO TO STRING
 
+	
 	@Override
 	public String toString() {
 		return "Categoria [idCategoria=" + idCategoria + ", Categoria=" + Categoria + ", Descripcion=" + Descripcion
 				+ ", seccion=" + seccion + "]";
 	}
-	
-	
-	
-	
+
+
+
 	
 	
 	
