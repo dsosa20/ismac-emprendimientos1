@@ -14,10 +14,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table(name="producto")
+@Table(name="productos")
 public class Producto {
-	
-	
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idProducto")
@@ -25,14 +25,16 @@ public class Producto {
 	@Column(name="numeroProducto")
 	private String numeroProducto;
 	@Column(name="descripcion")
-	private String Descripcion;
+	private String descripcion;
 	@Column(name="precioProducto")
 	private double precioProducto;
 	@Column(name="stock")
 	private int stock;
+	@Column(name="ImgProducto")
+	private String ImgProducto;
 	
 	@ManyToOne(cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name="idCategoria")		
+	@JoinColumn(name="fk_idCategoria")		
 	//GENERAMOS Categoria ***********
 //	@Autowired
 	private Categoria categoria;  //Categoria
@@ -43,23 +45,33 @@ public class Producto {
 			
 		}
 		
-	//CONSTRUCTOR PARAMETROS
-		public Producto(int idProducto, String numeroProducto, String descripcion, double precioProducto, int stock,
-				Categoria categoria) {
+
+		
+
+
+	public Producto(int idProducto, String numeroProducto, String descripcion, double precioProducto, int stock,
+				String imgProducto, Categoria categoria) {
 			this.idProducto = idProducto;
 			this.numeroProducto = numeroProducto;
-			Descripcion = descripcion;
+			this.descripcion = descripcion;
 			this.precioProducto = precioProducto;
 			this.stock = stock;
+			this.ImgProducto = imgProducto;
 			this.categoria = categoria;
 		}
 
 
-	// METODOS GET Y SET
+
+
+
+		// METODOS GET Y SET
+		
+
+
+
 		public int getIdProducto() {
 			return idProducto;
 		}
-
 
 
 		public void setIdProducto(int idProducto) {
@@ -78,12 +90,12 @@ public class Producto {
 
 
 		public String getDescripcion() {
-			return Descripcion;
+			return descripcion;
 		}
 
 
 		public void setDescripcion(String descripcion) {
-			Descripcion = descripcion;
+			this.descripcion = descripcion;
 		}
 
 
@@ -107,6 +119,17 @@ public class Producto {
 		}
 
 
+
+		public String getImgProducto() {
+			return ImgProducto;
+		}
+
+
+		public void setImgProducto(String imgProducto) {
+			ImgProducto = imgProducto;
+		}
+
+
 		public Categoria getCategoria() {
 			return categoria;
 		}
@@ -116,16 +139,19 @@ public class Producto {
 			this.categoria = categoria;
 		}
 
-		
-		//TO STRING
+
+
+
 		@Override
 		public String toString() {
-			return "Producto [idProducto=" + idProducto + ", numeroProducto=" + numeroProducto + ", Descripcion="
-					+ Descripcion + ", precioProducto=" + precioProducto + ", stock=" + stock + ", categoria="
-					+ categoria + "]";
+			return "Producto [idProducto=" + idProducto + ", numeroProducto=" + numeroProducto + ", descripcion="
+					+ descripcion + ", precioProducto=" + precioProducto + ", stock=" + stock + ", ImgProducto="
+					+ ImgProducto + ", categoria=" + categoria + "]";
 		}
 		
 	
+		
+		
 		
 	
 	
