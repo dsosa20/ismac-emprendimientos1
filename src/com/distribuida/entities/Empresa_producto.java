@@ -28,18 +28,25 @@ public class Empresa_producto {
 	private String descripcion;
 	
 	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name = "idEmpresa")
-	private Empresa empresa; 
+	@JoinColumn(name = "fk_idEmpresa")
+	private Empresa idempresa; 
+	
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name = "fk_idProduct")
+	private Producto idproducto;
 	
 	public Empresa_producto() {}
+
 	
-	public Empresa_producto(int idempresa_producto, String producto, String descripcion, Empresa empresa,
-			Productos productos) {
+	public Empresa_producto(int idempresa_producto, String producto, String descripcion, Empresa idempresa,
+			Producto idproducto) {
 		this.idempresa_producto = idempresa_producto;
 		this.producto = producto;
 		this.descripcion = descripcion;
-		this.empresa = empresa;
+		this.idempresa = idempresa;
+		this.idproducto = idproducto;
 	}
+
 
 	public int getIdempresa_producto() {
 		return idempresa_producto;
@@ -65,22 +72,28 @@ public class Empresa_producto {
 		this.descripcion = descripcion;
 	}
 
-	public Empresa getEmpresa() {
-		return empresa;
+	public Empresa getIdempresa() {
+		return idempresa;
 	}
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
+	public void setIdempresa(Empresa idempresa) {
+		this.idempresa = idempresa;
 	}
 
+	public Producto getIdproducto() {
+		return idproducto;
+	}
 
-
+	public void setIdproducto(Producto idproducto) {
+		this.idproducto = idproducto;
+	}
 
 	@Override
 	public String toString() {
 		return "Empresa_producto [idempresa_producto=" + idempresa_producto + ", producto=" + producto
-				+ ", descripcion=" + descripcion + ", empresa=" + empresa + ", productos=" + "]";
+				+ ", descripcion=" + descripcion + ", idempresa=" + idempresa + ", idproducto=" + idproducto + "]";
 	}
+	
 	
 	
 	

@@ -18,11 +18,12 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name = "empresa_detalle")
-public class Empresa_detalles {
-
+public class Empresa_detalles {	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_factura_detalle")
+	@Column(name = "idDetalleEmpresa")
 	private int idDetalleEmpresa;
 	@Column(name = "FechaInicio")
 	private Date FechaInicio; 
@@ -30,7 +31,7 @@ public class Empresa_detalles {
 	private String tipoEmpresa;
 	@Column(name = "encuestapopularidad")
 	private double encuestapopularidad; 
-	@Column(name = "comentarios")
+	@Column(name = "Comentarios")
 	private String Comentarios;
 	@Column(name = "HorariosAtencion")
 	private String HorariosAtencion;
@@ -39,14 +40,13 @@ public class Empresa_detalles {
 	@Column(name = "ChatCliente")
 	private String ChatCliente; 
 	
-	
 	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name = "idSucursales")
-	private Sucursales sucursales;
-	
-	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name = "idEmpresa")
+	@JoinColumn(name = "fk_idEmpresa")
 	private Empresa empresa;
+	
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name = "fk_idSucursal")
+	private Sucursales sucursales;
 	
 	
 	public Empresa_detalles() {	}
@@ -56,13 +56,13 @@ public class Empresa_detalles {
 			Sucursales sucursales) {
 	
 		this.idDetalleEmpresa = idDetalleEmpresa;
-		FechaInicio = fechaInicio;
+		this.FechaInicio = fechaInicio;
 		this.tipoEmpresa = tipoEmpresa;
 		this.encuestapopularidad = encuestapopularidad;
-		Comentarios = comentarios;
-		HorariosAtencion = horariosAtencion;
-		ChatUsuario = chatUsuario;
-		ChatCliente = chatCliente;
+		this.Comentarios = comentarios;
+		this.HorariosAtencion = horariosAtencion;
+		this.ChatUsuario = chatUsuario;
+		this.ChatCliente = chatCliente;
 		this.sucursales = sucursales;
 	}
 

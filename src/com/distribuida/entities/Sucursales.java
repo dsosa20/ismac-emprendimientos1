@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Table(name = "sucursales")
 public class Sucursales {
 
+	//Sucursales
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idSucursales")

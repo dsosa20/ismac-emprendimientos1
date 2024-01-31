@@ -41,7 +41,7 @@ public class Empresa {
 	public Empresa(int idEmpresa, String cirPago, String nombreempresa, String personaCargoEmpresa,
 	        String personaContacto, String telefono, String correo, String direccion) {
 	    this.idEmpresa = idEmpresa;
-	    CirPago = cirPago;
+	    this.CirPago = cirPago;
 	    this.nombreempresa = nombreempresa;
 	    this.personaCargoEmpresa = personaCargoEmpresa;
 	    this.personaContacto = personaContacto;
@@ -138,9 +138,4 @@ public class Empresa {
 				+ ", personaCargoEmpresa=" + personaCargoEmpresa + ", personaContacto=" + personaContacto
 				+ ", telefono=" + telefono + ", correo=" + correo + ", direccion=" + direccion + "]";
 	}
-
-
-
-	
-	
 }
