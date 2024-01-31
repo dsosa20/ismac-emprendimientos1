@@ -34,23 +34,8 @@ public class Factura {
 	@Column(name = "total")
 	private double total;
 	
-	
-	
 	public Factura() {}
 	
-	public Factura(int idFactura, String numFactura, Date fechaFactura, double totalNeto, double iva, double total,
-			Cliente cliente, Pedido pedido, FormaPago formaPago) {
-		this.idFactura = idFactura;
-		this.numFactura = numFactura;
-		this.fechaFactura = fechaFactura;
-		this.totalNeto = totalNeto;
-		this.iva = iva;
-		this.total = total;
-		this.cliente = cliente;
-		this.pedido = pedido;
-		this.formaPago = formaPago;
-	}
-
 	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@JoinColumn(name="fk_idCliente")
 	private Cliente cliente;
@@ -62,6 +47,18 @@ public class Factura {
 	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@JoinColumn(name="fk_idFormaPago")
 	private FormaPago formaPago;
+	
+	public Factura(int idFactura, String numFactura, Date fechaFactura, double totalNeto, double iva, double total) {
+		this.idFactura = idFactura;
+		this.numFactura = numFactura;
+		this.fechaFactura = fechaFactura;
+		this.totalNeto = totalNeto;
+		this.iva = iva;
+		this.total = total;
+		//this.cliente = cliente;
+		//this.pedido = pedido;
+		//this.formaPago = formaPago;
+	}
 	
 	public Factura (Cliente cliente){
 		this.cliente = cliente;
@@ -148,7 +145,7 @@ public class Factura {
 	@Override
 	public String toString() {
 		return "Factura [idFactura=" + idFactura + ", numFactura=" + numFactura + ", fechaFactura=" + fechaFactura
-				+ ", totalNeto=" + totalNeto + ", iva=" + iva + ", total=" + total + "]";
+				+ ", totalNeto=" + totalNeto + ", iva=" + iva + ", total=" + total + ", cliente=" + cliente
+				+ ", pedido=" + pedido + ", formaPago=" + formaPago + "]";
 	}
-	
 }

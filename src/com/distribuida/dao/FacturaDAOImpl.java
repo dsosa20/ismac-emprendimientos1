@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -60,6 +61,27 @@ public class FacturaDAOImpl implements FacturaDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(findOne(id));
 
+	}
+
+	@Override
+	@Transactional
+	public int findMax() {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("SELECT max(fa.idFactura) FROM facturacion fa");
+		return (int) query.getSingleResult();
+	}
+
+	@Override
+	@Transactional
+	public int findOne(String numFactura) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		Query<Factura> query = session.createQuery("select fa"
+				+ "from facturacion fa"
+				+ "Where fa.numFactura like : keyBusqueda ", Factura.class);
+		
+		return query.getResultList().get(0).getIdFactura();
 	}
 
 }

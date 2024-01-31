@@ -19,7 +19,7 @@ public class FacturaDetalle {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_factura")
+	@Column(name = "idDetallesFactura")
 	private int idFacturaDetalle;
 	@Column(name = "Producto")
 	private String producto;
@@ -39,12 +39,12 @@ public class FacturaDetalle {
 	private Factura factura;
 	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@JoinColumn(name="fk_idEmpresaProducto")
-	private EmpresaProducto empresaProducto;
+	private Empresa_producto empresaProducto;
 	
 	public FacturaDetalle () {}
 	
 	public FacturaDetalle(int idFacturaDetalle, String producto, int cantidad, double preUnidad, double subTotal,
-			double descuento1, double descuento2, Factura factura, EmpresaProducto empresaProducto) {
+			double descuento1, double descuento2) {
 		this.idFacturaDetalle = idFacturaDetalle;
 		this.producto = producto;
 		this.cantidad = cantidad;
@@ -52,15 +52,15 @@ public class FacturaDetalle {
 		this.subTotal = subTotal;
 		this.descuento1 = descuento1;
 		this.descuento2 = descuento2;
-		this.factura = factura;
-		this.empresaProducto = empresaProducto;
+		//this.factura = factura;
+		//this.empresaProducto = empresaProducto;
 	}
 
 	public FacturaDetalle (Factura factura) {
 		this.factura = factura;
 	}
 	
-	public FacturaDetalle (EmpresaProducto empresaProducto) {
+	public FacturaDetalle (Empresa_producto empresaProducto) {
 		this.empresaProducto = empresaProducto;
 	}
 
@@ -128,11 +128,11 @@ public class FacturaDetalle {
 		this.factura = factura;
 	}
 
-	public EmpresaProducto getEmpresaProducto() {
+	public Empresa_producto getEmpresaProducto() {
 		return empresaProducto;
 	}
 
-	public void setEmpresaProducto(EmpresaProducto empresaProducto) {
+	public void setEmpresaProducto(Empresa_producto empresaProducto) {
 		this.empresaProducto = empresaProducto;
 	}
 
@@ -140,7 +140,6 @@ public class FacturaDetalle {
 	public String toString() {
 		return "FacturaDetalle [idFacturaDetalle=" + idFacturaDetalle + ", producto=" + producto + ", cantidad="
 				+ cantidad + ", preUnidad=" + preUnidad + ", subTotal=" + subTotal + ", descuento1=" + descuento1
-				+ ", descuento2=" + descuento2 + ", factura=" + factura + "]";
+				+ ", descuento2=" + descuento2 + ", factura=" + factura + ", empresaProducto=" + empresaProducto + "]";
 	}
-
 }
