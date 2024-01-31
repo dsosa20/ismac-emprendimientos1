@@ -2,11 +2,14 @@ package com.distribuida.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -14,11 +17,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name = "cliente")
-public class cliente {
+public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_cliente")
+	@Column(name = "idCliente")
 	private int idCliente;
 	@Column(name = "cedula")
 	private String cedula;
@@ -34,18 +37,22 @@ public class cliente {
 	private String correo;
 	@Column(name = "genero")
 	private String genero;
-	@Column(name = "fecha_nac")
-	private Date fecha_nac;
+	@Column(name = "fechadenacimiento")
+	private Date fechadenacimiento;
+	
+	
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name = "fk_idtipoUS")
+	private Usuario usuario;
+	
 
-	@
-	
-	private TipoUsuario
-	
-	public cliente() {
+	public Cliente() {
 	}
 
-	public cliente(int idCliente, String cedula, String nombre, String apellido, String direccion, String telefono,
-			String correo, Date fecha_nac, String genero) {
+
+
+	public Cliente(int idCliente, String cedula, String nombre, String apellido, String direccion, String telefono,
+			String correo, String genero, Date fechadenacimiento, Usuario usuario) {
 		this.idCliente = idCliente;
 		this.cedula = cedula;
 		this.nombre = nombre;
@@ -54,8 +61,11 @@ public class cliente {
 		this.telefono = telefono;
 		this.correo = correo;
 		this.genero = genero;
-		this.fecha_nac = fecha_nac;
+		this.fechadenacimiento = fechadenacimiento;
+		this.usuario = usuario;
 	}
+
+
 
 	public int getIdCliente() {
 		return idCliente;
@@ -118,22 +128,43 @@ public class cliente {
 	}
 
 	public Date getFecha_nac() {
-		return fecha_nac;
+		return fechadenacimiento;
 	}
 
-	public void setFecha_nac(Date fecha_nac) {
-		this.fecha_nac = fecha_nac;
+	public void setFechadenacimiento(Date fechadenacimiento) {
+		this.fechadenacimiento = fechadenacimiento;
 	}
 
 	public String getTelefono() {
 		return telefono;
 	}
+	
+	
+
+
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "cliente [idCliente=" + idCliente + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido="
+		return "Cliente [idCliente=" + idCliente + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido="
 				+ apellido + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + ", genero="
-				+ genero + ", fecha_nac=" + fecha_nac + "]";
+				+ genero + ", fecha_nac=" + fechadenacimiento + ", usuario=" + usuario + "]";
 	}
+
+
+
+
 
 }
