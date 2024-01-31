@@ -27,6 +27,7 @@ public class Principalloginuser {
 		// findOne
 		// Cliente cliente = clienteDAO.findOne(2);
 		// System.out.println(cliente.toString());
+		//vercion v3.0.9
 		
 		
 		context.close();
