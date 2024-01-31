@@ -31,7 +31,7 @@ public class Perfil_empresa {
 	private String GamaColor;
 	
 	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name = "idEmpresa")
+	@JoinColumn(name = "fk_idEmpresa")
 	private Empresa empresa;
 	
 	public Perfil_empresa() {}
@@ -40,9 +40,9 @@ public class Perfil_empresa {
 	public Perfil_empresa(int idPerfilEmpresa, String logo, String opcColor1, String opcColor2, String gamaColor) {
 		this.idPerfilEmpresa = idPerfilEmpresa;
 		this.logo = logo;
-		OpcColor1 = opcColor1;
-		OpcColor2 = opcColor2;
-		GamaColor = gamaColor;
+		this.OpcColor1 = opcColor1;
+		this.OpcColor2 = opcColor2;
+		this.GamaColor = gamaColor;
 	}
 
 
