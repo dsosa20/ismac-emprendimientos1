@@ -2,11 +2,14 @@ package com.distribuida.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -27,7 +30,9 @@ public class Pedido {
 	@Column(name = "confirmacionPedido")
 	private int confirmacionPedido;
 	
-	
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="fk_idCliente")
+	private cliente cliente;
 	public Pedido() {}
 
 	
