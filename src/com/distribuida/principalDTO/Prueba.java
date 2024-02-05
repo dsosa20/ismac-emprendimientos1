@@ -1,9 +1,7 @@
 package com.distribuida.principalDTO;
 
-public class PrincipAL {
-	
-	/*
-	 * */
-	
-
+public class Prueba {
+/*
+ * INICIO
+ * */
 }
