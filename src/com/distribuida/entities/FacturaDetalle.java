@@ -30,9 +30,9 @@ public class FacturaDetalle {
 	@Column(name = "subtotal")
 	private double subTotal;
 	@Column(name = "descuento1")
-	private double descuento1;
+	private Double descuento1;
 	@Column(name = "descuento2")
-	private double descuento2;
+	private Double descuento2;
 	
 	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@JoinColumn(name="fk_idFactura")
@@ -43,8 +43,9 @@ public class FacturaDetalle {
 	
 	public FacturaDetalle () {}
 	
+
 	public FacturaDetalle(int idFacturaDetalle, String producto, int cantidad, double preUnidad, double subTotal,
-			double descuento1, double descuento2) {
+			Double descuento1, Double descuento2) {
 		this.idFacturaDetalle = idFacturaDetalle;
 		this.producto = producto;
 		this.cantidad = cantidad;
@@ -108,16 +109,16 @@ public class FacturaDetalle {
 		return descuento1;
 	}
 
-	public void setDescuento1(double descuento1) {
-		this.descuento1 = descuento1;
+	public void setDescuento1(Double descuento1) {
+		this.descuento1 = null;
 	}
 
 	public double getDescuento2() {
 		return descuento2;
 	}
 
-	public void setDescuento2(double descuento2) {
-		this.descuento2 = descuento2;
+	public void setDescuento2(Double descuento2) {
+		this.descuento2 = null;
 	}
 
 	public Factura getFactura() {
@@ -135,6 +136,7 @@ public class FacturaDetalle {
 	public void setEmpresaProducto(Empresa_producto empresaProducto) {
 		this.empresaProducto = empresaProducto;
 	}
+
 
 	@Override
 	public String toString() {
