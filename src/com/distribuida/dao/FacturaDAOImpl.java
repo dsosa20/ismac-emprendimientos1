@@ -83,5 +83,4 @@ public class FacturaDAOImpl implements FacturaDAO {
 		query.setParameter("keyBusqueda", "%"+numFactura+"%");				
 		return query.getResultList().get(0).getIdFactura();
 	}
-
 }

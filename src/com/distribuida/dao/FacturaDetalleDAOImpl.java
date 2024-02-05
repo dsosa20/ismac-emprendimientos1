@@ -59,5 +59,4 @@ public class FacturaDetalleDAOImpl implements FacturaDetalleDAO {
 		session.delete(findOne(id));
 
 	}
-
 }
