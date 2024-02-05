@@ -43,6 +43,7 @@ public class FacturaDetalle {
 	
 	public FacturaDetalle () {}
 	
+	
 
 	public FacturaDetalle(int idFacturaDetalle, String producto, int cantidad, double preUnidad, double subTotal,
 			Double descuento1, Double descuento2) {
@@ -110,7 +111,7 @@ public class FacturaDetalle {
 	}
 
 	public void setDescuento1(Double descuento1) {
-		this.descuento1 = null;
+		this.descuento1 = descuento1;
 	}
 
 	public double getDescuento2() {
@@ -118,7 +119,7 @@ public class FacturaDetalle {
 	}
 
 	public void setDescuento2(Double descuento2) {
-		this.descuento2 = null;
+		this.descuento2 = descuento2;
 	}
 
 	public Factura getFactura() {
@@ -136,6 +137,7 @@ public class FacturaDetalle {
 	public void setEmpresaProducto(Empresa_producto empresaProducto) {
 		this.empresaProducto = empresaProducto;
 	}
+
 
 
 	@Override
