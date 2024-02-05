@@ -14,5 +14,6 @@ public interface FacturaDAO {
 
 	public int findMax();
 	public int findOne(String numFactura);
+
 	
 }
