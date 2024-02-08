@@ -6,7 +6,10 @@ import com.distribuida.entities.FormaPago;
 
 public interface FormaPagoDAO {
 
+	
 	public List<FormaPago> findAll();
+	
+	public List<FormaPago> findAll(String busqueda);
 	
 	public FormaPago findOne(int id);
 	

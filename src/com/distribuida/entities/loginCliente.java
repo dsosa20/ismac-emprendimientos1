@@ -51,7 +51,7 @@ public class loginCliente {
 	
 
 	
-public loginCliente (int id,String user,String password,String newpassword,String confirmpassword,
+	public loginCliente (int id,String user,String password,String newpassword,String confirmpassword,
 		String loginCorreo,String loginToken,String SessiontimeIn,String SessiontimeOUT,String  Sessiontiempo) {
 	
 	

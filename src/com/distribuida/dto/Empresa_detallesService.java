@@ -1,6 +1,6 @@
 package com.distribuida.dto;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import com.distribuida.entities.Empresa_detalles;

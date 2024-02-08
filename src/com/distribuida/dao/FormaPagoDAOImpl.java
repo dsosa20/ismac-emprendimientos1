@@ -57,4 +57,11 @@ public class FormaPagoDAOImpl implements FormaPagoDAO {
 		session.delete(findOne(id));
 	}
 
+	@Override
+	@Transactional
+	public List<FormaPago> findAll(String busqueda) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

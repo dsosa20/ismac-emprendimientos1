@@ -21,22 +21,19 @@ public class Perfil_empresaServiceImpl implements Perfil_empresaService {
 	@Autowired
 	private EmpresaDAO empresaDAO; 
 	
-	@Override
-	@Transactional
+	@Override	
 	public List<Perfil_empresa> finAll() {
 		// TODO Auto-generated method stub
 		return perfil_empresaDAO.findAll();
 	}
 
-	@Override
-	@Transactional
+	@Override	
 	public Perfil_empresa finOne(int id) {
 		// TODO Auto-generated method stub
 		return perfil_empresaDAO.findOne(id);
 	}
 
-	@Override
-	@Transactional
+	@Override	
 	public void add(int idPerfilEmpresa, String logo, String opcColor1, String opcColor2, String gamaColor, int fk_idEmpresa) {
 		// TODO Auto-generated method stub
 		
@@ -47,7 +44,6 @@ public class Perfil_empresaServiceImpl implements Perfil_empresaService {
 	}
 
 	@Override
-	@Transactional
 	public void up(int idPerfilEmpresa, String logo, String opcColor1, String opcColor2, String gamaColor, int fk_idEmpresa) {
 		// TODO Auto-generated method stub
 		Empresa empresa = empresaDAO.findOne(fk_idEmpresa);
@@ -57,14 +53,12 @@ public class Perfil_empresaServiceImpl implements Perfil_empresaService {
 	}
 
 	@Override
-	@Transactional
 	public void del(int id) {
 		// TODO Auto-generated method stub
 		perfil_empresaDAO.del(id);
 	}
 
-	@Override
-	@Transactional
+	@Override	
 	public List<Perfil_empresa> findAll(String busqueda) {
 		// TODO Auto-generated method stub
 		return perfil_empresaDAO.findAll(busqueda);

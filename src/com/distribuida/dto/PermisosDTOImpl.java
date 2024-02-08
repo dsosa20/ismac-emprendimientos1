@@ -1,5 +1,5 @@
 package com.distribuida.dto;
 
-public interface PermisosDTO {
+public class PermisosDTOImpl {
 
 }
