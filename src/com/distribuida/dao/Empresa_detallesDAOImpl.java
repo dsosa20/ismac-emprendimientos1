@@ -24,7 +24,7 @@ public class Empresa_detallesDAOImpl implements Empresa_detallesDAO {
 	public List<Empresa_detalles> findAll() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		return session.createQuery("from Empresa_deralles", Empresa_detalles.class).getResultList();
+		return session.createQuery("from Empresa_detalles", Empresa_detalles.class).getResultList();
 		
 	}
 

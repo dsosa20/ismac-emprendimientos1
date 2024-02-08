@@ -6,6 +6,7 @@ import com.distribuida.entities.Categoria;
 
 public interface CategoriaDAO {
 	
+	// comentario
 
 		public List<Categoria> findAll(String busqueda);
 		public  Categoria findOne(int id );
