@@ -38,6 +38,7 @@ public class ReportesDAOImpl implements ReportesDAO {
 	}
 
 	@Override
+	@Transactional
 	public void add(Reportes reportes) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -45,6 +46,7 @@ public class ReportesDAOImpl implements ReportesDAO {
 	}
 
 	@Override
+	@Transactional
 	public void up(Reportes reportes) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -52,6 +54,7 @@ public class ReportesDAOImpl implements ReportesDAO {
 	}
 
 	@Override
+	@Transactional
 	public void del(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -59,6 +62,7 @@ public class ReportesDAOImpl implements ReportesDAO {
 	}
 
 	@Override
+	@Transactional
 	public List<Reportes> findAll(String busqueda) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();

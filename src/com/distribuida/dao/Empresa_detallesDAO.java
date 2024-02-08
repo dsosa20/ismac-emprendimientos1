@@ -8,7 +8,7 @@ public interface Empresa_detallesDAO {
 	
 	//DAO IMPL
 
-public List<Empresa_detalles> findAll();
+	public List<Empresa_detalles> findAll();
 	
 	public Empresa_detalles findOne(int id);
 	

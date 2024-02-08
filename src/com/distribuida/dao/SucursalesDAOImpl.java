@@ -60,6 +60,7 @@ public class SucursalesDAOImpl implements SucursalesDAO {
 	}
 
 	@Override
+	@Transactional
 	public List<Sucursales> findAll(String busqueda) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();

@@ -1,10 +1,8 @@
 package com.distribuida.dto;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.distribuida.dao.CategoriaDAO;
 import com.distribuida.dao.SeccionDAO;
 import com.distribuida.entities.Categoria;
@@ -37,13 +35,11 @@ public class CategoriaServiceImpl implements CategoriaService {
 		// TODO Auto-generated method stub
 
 
-		Seccion seccion = seccionDAO.findOne(fk_idSeccion);
-	    
+		Seccion seccion = seccionDAO.findOne(fk_idSeccion);	    
 		Categoria categoria1 = new Categoria(idCategoria,categoria,descripcion);
 		
 		categoria1.setSeccion(seccion);
-		
-		
+				
 		categoriaDAO.add(categoria1);
 		
 		

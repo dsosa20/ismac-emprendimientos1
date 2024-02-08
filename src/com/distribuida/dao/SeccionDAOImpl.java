@@ -85,6 +85,7 @@ public class SeccionDAOImpl implements SeccionDAO {
 
 
 	@Override
+	@Transactional
 	public List<Seccion> findAll(String busqueda) {
 		// TODO Auto-generated method stub
 		return null;

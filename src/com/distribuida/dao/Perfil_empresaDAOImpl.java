@@ -52,6 +52,7 @@ public class Perfil_empresaDAOImpl implements Perfil_empresaDAO {
 	}
 
 	@Override
+	@Transactional
 	public void del(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -59,6 +60,7 @@ public class Perfil_empresaDAOImpl implements Perfil_empresaDAO {
 	}
 
 	@Override
+	@Transactional
 	public List<Perfil_empresa> findAll(String busqueda) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
