@@ -83,4 +83,23 @@ public class FacturaDAOImpl implements FacturaDAO {
 		query.setParameter("keyBusqueda", "%"+numFactura+"%");				
 		return query.getResultList().get(0).getIdFactura();
 	}
+	
+	@Override
+	@Transactional
+	public List<Factura> findAll(String busqueda) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		Query<Factura> query = session.createQuery(
+				"SELECT fa "
+				+ " FROM Factura fa"
+				+ " WHERE fa.numFactura LIKE : keyBusqueda"
+				+ " OR fa.fechaFactura LIKE : keyBusqueda"
+				+ " OR fa.totalNeto LIKE : keyBusqueda"
+				+ " OR fa.iva LIKE : keyBusqueda"
+				+ " OR fa.total LIKE : keyBusqueda"
+				, Factura.class);
+		
+		query.setParameter("keyBusqueda", "%"+busqueda+"%");
+		return query.getResultList();
+	}
 }

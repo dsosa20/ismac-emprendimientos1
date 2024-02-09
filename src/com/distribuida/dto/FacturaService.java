@@ -19,5 +19,6 @@ public interface FacturaService {
 	public int findMax();
 	public int findOne(String numFactura);
 	
+	public List<Factura> findAll(String busqueda);
 
 }
